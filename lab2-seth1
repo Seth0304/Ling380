@@ -1,0 +1,24 @@
+import requests
+import os
+
+
+# Novel 1: "Lotte civili" by Edmondo De Amicis
+lotte_civili_url = "https://www.gutenberg.org/cache/epub/75129/pg75129.txt"
+response = requests.get(lotte_civili_url)
+
+
+html_string = response.text
+path = './data'
+os.makedirs(path, exist_ok=True)
+with open("./data/Lotte_civili.txt", 'w', encoding="utf-8") as out:
+    out.write(html_string)
+
+
+# Novel 2: "From the West to the West Across the plains to Oregon" by Abigail Scott Duniway
+ftwotw_url = "https://www.gutenberg.org/cache/epub/75131/pg75131.txt"
+response = requests.get(ftwotw_url)
+
+
+html_string = response.text
+with open("./data/From_the_West_to_the_West.txt", 'w', encoding="utf-8") as out:
+    out.write(html_string)
